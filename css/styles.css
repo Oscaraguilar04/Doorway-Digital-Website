@@ -1318,6 +1318,11 @@ h4 {
   letter-spacing: 0.03em;
 }
 
+.project-browser__image {
+  width: 100%;
+  height: auto;
+}
+
 .project-browser__canvas {
   display: flex;
   aspect-ratio: 16 / 10;
@@ -1377,6 +1382,18 @@ h4 {
   background: #34312d;
   content: "";
   transform: translateX(-50%);
+}
+
+.project-device--image {
+  overflow: hidden;
+  padding: 0;
+}
+
+.project-device--image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
 }
 
 .project-device span {
