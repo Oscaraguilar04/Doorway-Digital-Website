@@ -9,25 +9,40 @@
     <title>Doorway Digital | Realtor Website Design</title>
     <meta
       name="description"
-      content="Doorway Digital creates professional personal-brand websites for residential real-estate agents, bringing branding, services, social presence, and client inquiries together in one polished online destination."
+      content="Doorway Digital creates professional personal-brand websites for residential real-estate professionals, bringing branding, services, social presence, and client inquiries together in one polished online destination."
     >
     <meta name="robots" content="index, follow">
 
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Doorway Digital">
     <meta property="og:title" content="Doorway Digital | Realtor Website Design">
     <meta
       property="og:description"
-      content="Professional personal-brand websites for residential real-estate professionals."
+      content="Doorway Digital creates professional personal-brand websites for residential real-estate professionals, bringing branding, services, social presence, and client inquiries together in one polished online destination."
     >
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Doorway Digital | Realtor Website Design">
     <meta
       name="twitter:description"
-      content="Professional personal-brand websites for residential real-estate professionals."
+      content="Doorway Digital creates professional personal-brand websites for residential real-estate professionals, bringing branding, services, social presence, and client inquiries together in one polished online destination."
     >
 
-    <!-- Add canonical and social-preview URLs when the production domain is confirmed. -->
+    <link rel="canonical" href="https://oscaraguilar04.github.io/Doorway-Digital-Website/">
+    <meta property="og:url" content="https://oscaraguilar04.github.io/Doorway-Digital-Website/">
+    <meta
+      property="og:image"
+      content="https://oscaraguilar04.github.io/Doorway-Digital-Website/assets/images/brand/doorway-digital-social.png"
+    >
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Doorway Digital — Web Design for Real-Estate Professionals">
+    <meta
+      name="twitter:image"
+      content="https://oscaraguilar04.github.io/Doorway-Digital-Website/assets/images/brand/doorway-digital-social.png"
+    >
+    <meta name="twitter:image:alt" content="Doorway Digital — Web Design for Real-Estate Professionals">
     <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,6 +50,18 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Manrope:wght@400;500;600;700&display=swap"
     >
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Doorway Digital",
+        "url": "https://oscaraguilar04.github.io/Doorway-Digital-Website/",
+        "email": "Doorwaydigital0@gmail.com",
+        "image": "https://oscaraguilar04.github.io/Doorway-Digital-Website/assets/images/brand/doorway-digital-social.png",
+        "description": "Professional personal-brand website design for residential real-estate professionals.",
+        "serviceType": "Personal-brand website design for residential real-estate professionals"
+      }
+    </script>
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/script.js" defer></script>
   </head>
@@ -120,33 +147,36 @@
           </div>
 
           <figure class="hero-preview">
-            <!-- Replace this browser canvas with a final Doorway Digital portfolio capture. -->
-            <div class="browser-frame" aria-hidden="true">
-              <div class="browser-frame__bar">
+            <div class="browser-frame">
+              <div class="browser-frame__bar" aria-hidden="true">
                 <span></span>
                 <span></span>
                 <span></span>
-                <div class="browser-frame__address">Website preview</div>
+                <div class="browser-frame__address">Portfolio concept preview</div>
               </div>
-              <div class="browser-frame__canvas">
-                <div class="preview-placeholder">
-                  <span class="preview-placeholder__label">Portfolio preview</span>
-                  <strong>Project screenshot<br>to be added</strong>
-                  <span class="preview-placeholder__detail">Desktop presentation</span>
-                </div>
-              </div>
+              <img
+                class="browser-frame__image"
+                src="assets/images/portfolio/esme-rodriguez-desktop.webp"
+                alt="Desktop homepage concept for Esme Rodriguez’s luxury real-estate website"
+                width="1440"
+                height="900"
+                fetchpriority="high"
+                decoding="async"
+              >
             </div>
 
-            <!-- Replace this device canvas with the corresponding mobile project capture. -->
-            <div class="device-frame" aria-hidden="true">
-              <div class="device-frame__speaker"></div>
-              <div class="device-frame__canvas">
-                <span>Mobile<br>preview</span>
-              </div>
+            <div class="device-frame device-frame--image">
+              <div class="device-frame__speaker" aria-hidden="true"></div>
+              <img
+                src="assets/images/portfolio/esme-rodriguez-mobile.webp"
+                alt="Mobile homepage concept for Esme Rodriguez’s luxury real-estate website"
+                width="390"
+                height="844"
+                decoding="async"
+              >
             </div>
             <figcaption class="visually-hidden">
-              Temporary placeholders for desktop and mobile Doorway Digital portfolio
-              screenshots.
+              Desktop and mobile views of the Esme Rodriguez luxury real-estate portfolio concept.
             </figcaption>
           </figure>
         </div>
@@ -255,25 +285,33 @@
               </header>
 
               <figure class="project-preview project-preview--luxury">
-                <!-- Replace with the final Esme Rodriguez desktop portfolio screenshot. -->
-                <div class="project-browser" aria-hidden="true">
-                  <div class="project-browser__bar">
+                <div class="project-browser">
+                  <div class="project-browser__bar" aria-hidden="true">
                     <span></span><span></span><span></span>
                     <div>Desktop concept preview</div>
                   </div>
-                  <div class="project-browser__canvas">
-                    <span class="project-browser__label">Portfolio screenshot placeholder</span>
-                    <strong>Esme Rodriguez</strong>
-                    <span class="project-browser__descriptor">Luxury / Private Representation</span>
-                  </div>
+                  <img
+                    class="project-browser__image"
+                    src="assets/images/portfolio/esme-rodriguez-desktop.webp"
+                    alt="Desktop homepage concept for Esme Rodriguez’s luxury real-estate website"
+                    width="1440"
+                    height="900"
+                    loading="lazy"
+                    decoding="async"
+                  >
                 </div>
-                <!-- Replace with the matching Esme Rodriguez mobile screenshot. -->
-                <div class="project-device" aria-hidden="true">
-                  <span>Mobile<br>preview</span>
+                <div class="project-device project-device--image">
+                  <img
+                    src="assets/images/portfolio/esme-rodriguez-mobile.webp"
+                    alt="Mobile homepage concept for Esme Rodriguez’s luxury real-estate website"
+                    width="390"
+                    height="844"
+                    loading="lazy"
+                    decoding="async"
+                  >
                 </div>
                 <figcaption class="visually-hidden">
-                  Placeholder reserved for desktop and mobile screenshots of the Esme
-                  Rodriguez luxury real-estate website concept.
+                  Desktop and mobile views of the Esme Rodriguez luxury real-estate portfolio concept.
                 </figcaption>
               </figure>
 
@@ -322,25 +360,33 @@
               </header>
 
               <figure class="project-preview project-preview--warm">
-                <!-- Replace with the final Elena Martinez desktop portfolio screenshot. -->
-                <div class="project-browser" aria-hidden="true">
-                  <div class="project-browser__bar">
+                <div class="project-browser">
+                  <div class="project-browser__bar" aria-hidden="true">
                     <span></span><span></span><span></span>
                     <div>Desktop concept preview</div>
                   </div>
-                  <div class="project-browser__canvas">
-                    <span class="project-browser__label">Portfolio screenshot placeholder</span>
-                    <strong>Elena Martinez</strong>
-                    <span class="project-browser__descriptor">Family / First-Time Buyer</span>
-                  </div>
+                  <img
+                    class="project-browser__image"
+                    src="assets/images/portfolio/elena-martinez-desktop.webp"
+                    alt="Desktop homepage concept for Elena Martinez’s family-focused real-estate website"
+                    width="1440"
+                    height="900"
+                    loading="lazy"
+                    decoding="async"
+                  >
                 </div>
-                <!-- Replace with the matching Elena Martinez mobile screenshot. -->
-                <div class="project-device" aria-hidden="true">
-                  <span>Mobile<br>preview</span>
+                <div class="project-device project-device--image">
+                  <img
+                    src="assets/images/portfolio/elena-martinez-mobile.webp"
+                    alt="Mobile homepage concept for Elena Martinez’s family-focused real-estate website"
+                    width="390"
+                    height="844"
+                    loading="lazy"
+                    decoding="async"
+                  >
                 </div>
                 <figcaption class="visually-hidden">
-                  Placeholder reserved for desktop and mobile screenshots of the Elena
-                  Martinez family and first-time-buyer real-estate website concept.
+                  Desktop and mobile views of the Elena Martinez family-focused portfolio concept.
                 </figcaption>
               </figure>
 
@@ -395,7 +441,7 @@
                   </div>
                   <img
                     class="project-browser__image"
-                    src="assets/images/portfolio/camila-reyes-desktop.png"
+                    src="assets/images/portfolio/camila-reyes-desktop.webp"
                     alt="Desktop homepage concept for Camila Reyes’ social-first Realtor website"
                     width="1876"
                     height="902"
@@ -405,7 +451,7 @@
                 </div>
                 <div class="project-device project-device--image">
                   <img
-                    src="assets/images/portfolio/camila-reyes-mobile.jpg"
+                    src="assets/images/portfolio/camila-reyes-mobile.webp"
                     alt="Mobile homepage concept for Camila Reyes’ social-first Realtor website"
                     width="1284"
                     height="2371"
@@ -546,7 +592,7 @@
           <div class="founding__offer">
             <div class="founding__price-block">
               <p>Founding-client project rate</p>
-              <p class="founding__price" aria-label="450 dollars total">$450</p>
+              <p class="founding__price"><span aria-hidden="true">$450</span><span class="visually-hidden">450 dollars total</span></p>
               <span>Total project price</span>
             </div>
 
@@ -701,6 +747,225 @@
           </ol>
         </div>
       </section>
+
+      <!-- Why a personal website -->
+      <section class="personal-site section" aria-labelledby="personal-site-title">
+        <div class="container--wide">
+          <header class="personal-site__header">
+            <div>
+              <p class="eyebrow">Why a Personal Website</p>
+              <h2 class="personal-site__title" id="personal-site-title">
+                Your brokerage represents the company. Your website represents you.
+              </h2>
+            </div>
+            <p class="personal-site__introduction">
+              Brokerage profiles, social platforms, and property-search resources remain
+              valuable. A personal website gives prospective clients one organized place
+              to understand the individual professional behind those profiles.
+            </p>
+          </header>
+
+          <div class="personal-site__stories">
+            <article>
+              <span>Your Brand</span>
+              <h3>Make room for your individual professional identity.</h3>
+              <p>
+                Present your approach, specialties, personality, market, and the way you
+                guide clients—not only the brokerage you work under.
+              </p>
+            </article>
+            <article>
+              <span>Your Story</span>
+              <h3>Give context beyond a feed or individual post.</h3>
+              <p>
+                Help prospective clients understand who you are, what matters in your
+                work, and what they can expect when working with you.
+              </p>
+            </article>
+            <article>
+              <span>Your Client Journey</span>
+              <h3>Create a clearer path from introduction to contact.</h3>
+              <p>
+                Organize services for buyers and sellers so people can learn at their own
+                pace and easily find the right way to reach you.
+              </p>
+            </article>
+            <article>
+              <span>Your Professional Home Base</span>
+              <h3>Give your existing marketing one destination to reference.</h3>
+              <p>
+                Social profiles, brokerage pages, email signatures, QR codes, property
+                resources, and marketing materials can all point toward your website.
+              </p>
+            </article>
+          </div>
+
+          <div class="personal-site__home-base">
+            <p>Social media · Brokerage profile · Email · Property resources</p>
+            <span aria-hidden="true"></span>
+            <div>
+              <small>One professional destination</small>
+              <strong>Your Personal Website</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section class="about section" id="about" aria-labelledby="about-title">
+        <div class="container--wide about__layout">
+          <div class="about__heading">
+            <p class="eyebrow">About Doorway Digital</p>
+            <h2 class="about__title" id="about-title">
+              Built around the professional behind the business.
+            </h2>
+          </div>
+          <div class="about__content">
+            <p class="about__statement">
+              Doorway Digital was built around a simple idea: a Realtor’s online presence
+              should represent the individual professional behind the business—not only
+              the brokerage they work under.
+            </p>
+            <p>
+              We focus on thoughtful personal branding, clear professional presentation,
+              intentional design, and simple client experiences that complement the
+              marketing Realtors already use. We work with real-estate professionals,
+              with an initial focus in Bakersfield and Kern County, California.
+            </p>
+            <ul class="about__principles" role="list">
+              <li><strong>Personal</strong><span>Built around the Realtor</span></li>
+              <li><strong>Clear</strong><span>Easy to understand and navigate</span></li>
+              <li><strong>Intentional</strong><span>Designed with a reason</span></li>
+              <li><strong>Complementary</strong><span>Supports existing marketing</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Frequently asked questions -->
+      <section class="faq section" id="faq" aria-labelledby="faq-title">
+        <div class="container--wide faq__layout">
+          <header class="faq__header">
+            <p class="eyebrow">Frequently Asked Questions</p>
+            <h2 class="faq__title" id="faq-title">Clear answers before we begin.</h2>
+            <p>
+              The consultation is also a place to discuss project-specific questions and
+              determine whether Doorway Digital is the right fit.
+            </p>
+          </header>
+
+          <div class="faq__list">
+            <article class="faq__item">
+              <h3><button type="button" id="faq-button-1" aria-expanded="true" aria-controls="faq-panel-1" data-faq-button>Does the website include MLS or IDX?<span aria-hidden="true"></span></button></h3>
+              <div class="faq__panel" id="faq-panel-1" role="region" aria-labelledby="faq-button-1">
+                <p>MLS/IDX integration is not included in the standard website package. Requirements and costs vary depending on the brokerage, MLS provider, and integration required, so it is reviewed and quoted separately.</p>
+              </div>
+            </article>
+            <article class="faq__item">
+              <h3><button type="button" id="faq-button-2" aria-expanded="true" aria-controls="faq-panel-2" data-faq-button>Will my website generate leads?<span aria-hidden="true"></span></button></h3>
+              <div class="faq__panel" id="faq-panel-2" role="region" aria-labelledby="faq-button-2">
+                <p>No specific number of leads, transactions, or business results can be guaranteed. The website is designed to give prospective clients a professional place to learn about you, understand your services, and contact you.</p>
+              </div>
+            </article>
+            <article class="faq__item">
+              <h3><button type="button" id="faq-button-3" aria-expanded="true" aria-controls="faq-panel-3" data-faq-button>Do I still need my brokerage website?<span aria-hidden="true"></span></button></h3>
+              <div class="faq__panel" id="faq-panel-3" role="region" aria-labelledby="faq-button-3">
+                <p>Yes. A personal website is intended to complement your brokerage presence, not necessarily replace it. Your personal site focuses more heavily on your individual professional brand and client experience.</p>
+              </div>
+            </article>
+            <article class="faq__item">
+              <h3><button type="button" id="faq-button-4" aria-expanded="true" aria-controls="faq-panel-4" data-faq-button>How long does a website take?<span aria-hidden="true"></span></button></h3>
+              <div class="faq__panel" id="faq-panel-4" role="region" aria-labelledby="faq-button-4">
+                <p>Most projects are completed in approximately 2–3 weeks after onboarding is complete. Timing depends on project complexity and timely delivery of client content and feedback.</p>
+              </div>
+            </article>
+            <article class="faq__item">
+              <h3><button type="button" id="faq-button-5" aria-expanded="true" aria-controls="faq-panel-5" data-faq-button>What do I need to provide?<span aria-hidden="true"></span></button></h3>
+              <div class="faq__panel" id="faq-panel-5" role="region" aria-labelledby="faq-button-5">
+                <p>You’ll provide business and brokerage information, professional bio details, branding, photos, social links, service areas, specialties, testimonials when available, and relevant property or resource links. Doorway Digital can organize and refine supplied content for clarity and presentation.</p>
+              </div>
+            </article>
+            <article class="faq__item">
+              <h3><button type="button" id="faq-button-6" aria-expanded="true" aria-controls="faq-panel-6" data-faq-button>How many revisions are included?<span aria-hidden="true"></span></button></h3>
+              <div class="faq__panel" id="faq-panel-6" role="region" aria-labelledby="faq-button-6">
+                <p>The Founding Client Program includes two consolidated revision rounds. A revision round is one organized set of reasonable changes within the agreed project scope. Additional work may be quoted separately.</p>
+              </div>
+            </article>
+            <article class="faq__item">
+              <h3><button type="button" id="faq-button-7" aria-expanded="true" aria-controls="faq-panel-7" data-faq-button>Do I own the website?<span aria-hidden="true"></span></button></h3>
+              <div class="faq__panel" id="faq-panel-7" role="region" aria-labelledby="faq-button-7">
+                <p>After the project is paid in full, you receive ownership of the agreed final website deliverables. Third-party services, software, licensed assets, domains, hosting platforms, and integrations remain subject to their respective terms.</p>
+              </div>
+            </article>
+            <article class="faq__item">
+              <h3><button type="button" id="faq-button-8" aria-expanded="true" aria-controls="faq-panel-8" data-faq-button>Who owns the domain?<span aria-hidden="true"></span></button></h3>
+              <div class="faq__panel" id="faq-panel-8" role="region" aria-labelledby="faq-button-8">
+                <p>The client should own their domain. Doorway Digital can help connect it to the completed website. Domain registration and renewal costs are separate unless otherwise agreed.</p>
+              </div>
+            </article>
+            <article class="faq__item">
+              <h3><button type="button" id="faq-button-9" aria-expanded="true" aria-controls="faq-panel-9" data-faq-button>Can Doorway Digital maintain the site after launch?<span aria-hidden="true"></span></button></h3>
+              <div class="faq__panel" id="faq-panel-9" role="region" aria-labelledby="faq-button-9">
+                <p>Yes. Optional Doorway Digital Care is available for $50/month and may include hosting management where applicable, basic monitoring, form and link checks, technical support for the existing site, and up to 30 minutes of minor content changes per month. Unused update time does not roll over.</p>
+                <p>New pages, redesigns, new functionality, IDX work, major content creation, substantial integrations, and ongoing SEO are quoted separately.</p>
+              </div>
+            </article>
+            <article class="faq__item">
+              <h3><button type="button" id="faq-button-10" aria-expanded="true" aria-controls="faq-panel-10" data-faq-button>Can features be added later?<span aria-hidden="true"></span></button></h3>
+              <div class="faq__panel" id="faq-panel-10" role="region" aria-labelledby="faq-button-10">
+                <p>Yes. Additional pages, features, integrations, or other functionality can be discussed and quoted separately as the website evolves.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final consultation call to action -->
+      <section class="final-cta section" aria-labelledby="final-cta-title">
+        <div class="container final-cta__inner">
+          <p class="eyebrow">Start a Conversation</p>
+          <h2 id="final-cta-title">
+            Your online presence should feel as professional as the service you provide.
+          </h2>
+          <p>
+            Book a 30-minute consultation to discuss your current online presence, personal
+            brand, and website goals—and determine whether Doorway Digital is a good fit.
+          </p>
+          <div class="final-cta__actions">
+            <a class="button" href="https://calendly.com/doorwaydigital0/30min" aria-label="Book a 30-minute consultation with Doorway Digital">Book a Consultation</a>
+            <a class="final-cta__email" href="mailto:Doorwaydigital0@gmail.com">Doorwaydigital0@gmail.com</a>
+          </div>
+          <small>30-minute consultation <span aria-hidden="true">·</span> No obligation to purchase</small>
+        </div>
+      </section>
     </main>
+
+    <footer class="site-footer">
+      <div class="container--wide site-footer__grid">
+        <div class="site-footer__brand">
+          <a href="index.html" class="site-footer__wordmark" aria-label="Doorway Digital home">Doorway Digital</a>
+          <p>Web Design for Real-Estate Professionals</p>
+        </div>
+        <nav class="site-footer__navigation" aria-label="Footer navigation">
+          <span>Navigation</span>
+          <ul role="list">
+            <li><a href="#work">Work</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </nav>
+        <div class="site-footer__contact">
+          <span>Contact</span>
+          <a href="mailto:Doorwaydigital0@gmail.com">Doorwaydigital0@gmail.com</a>
+          <a href="https://calendly.com/doorwaydigital0/30min">Book a Consultation</a>
+        </div>
+      </div>
+      <div class="container--wide site-footer__legal">
+        <p>Portfolio projects currently shown are concept work created to demonstrate Doorway Digital’s design approach.</p>
+        <p>© 2026 Doorway Digital. All rights reserved.</p>
+      </div>
+    </footer>
   </body>
 </html>

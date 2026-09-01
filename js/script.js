@@ -55,4 +55,22 @@ window.addEventListener("scroll", updateHeaderState, { passive: true });
 
 syncNavigation();
 updateHeaderState();
+
+const faqButtons = document.querySelectorAll("[data-faq-button]");
+
+faqButtons.forEach((button) => {
+  const panel = document.getElementById(button.getAttribute("aria-controls"));
+
+  if (!panel) return;
+
+  button.setAttribute("aria-expanded", "false");
+  panel.hidden = true;
+
+  button.addEventListener("click", () => {
+    const isExpanded = button.getAttribute("aria-expanded") === "true";
+    button.setAttribute("aria-expanded", String(!isExpanded));
+    panel.hidden = isExpanded;
+  });
+});
+
 document.documentElement.classList.replace("no-js", "js");
