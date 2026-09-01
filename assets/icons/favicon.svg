@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Doorway Digital</title>
+  <rect width="64" height="64" rx="4" fill="#1a1917"/>
+  <path
+    fill="#f7f5f1"
+    d="M14 14h15.25C41.23 14 49 20.9 49 32S41.23 50 29.25 50H14V14Zm14.7 29.5c7.78 0 12.3-4.13 12.3-11.5s-4.52-11.5-12.3-11.5H22v23h6.7Z"
+  />
+  <path fill="#8a6a44" d="M32 14h5v36h-5z"/>
+</svg>
