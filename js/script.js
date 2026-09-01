@@ -35,7 +35,7 @@ navToggle.addEventListener("click", () => {
 
 navigation.addEventListener("click", (event) => {
   if (event.target.closest("a") && !desktopMedia.matches) {
-    setMenuState(false);
+    setMenuState(false, true);
   }
 });
 
