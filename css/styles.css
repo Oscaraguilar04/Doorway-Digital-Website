@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Doorway Digital — Architectural Digital Studio
+   Acre & Signal — Architectural Digital Studio
    1.  Tokens
    2.  Reset & base
    3.  Utilities & primitives
@@ -581,27 +581,26 @@ ol[role="list"] {
   white-space: nowrap;
 }
 
-/* Doorway motif: a small architectural opening beside the wordmark. */
+/* Brand mark: a survey stake with a signal point. */
 .wordmark__mark {
   position: relative;
-  width: 0.875rem;
-  height: 1.25rem;
-  border: 1px solid currentcolor;
-  border-bottom-width: 0;
-  border-radius: 0.4375rem 0.4375rem 0 0;
+  width: 0.125rem;
+  height: 1.2rem;
+  background: currentcolor;
   opacity: 0.75;
   transition: opacity var(--t-base) var(--ease);
 }
 
 .wordmark__mark::after {
   position: absolute;
-  right: 0.1875rem;
-  bottom: 0.3rem;
-  width: 0.125rem;
-  height: 0.125rem;
+  top: -0.2rem;
+  left: 50%;
+  width: 0.375rem;
+  height: 0.375rem;
   border-radius: 50%;
   background: var(--bronze);
   content: "";
+  transform: translateX(-50%);
 }
 
 .masthead.is-inverted .wordmark__mark::after {
@@ -1268,7 +1267,7 @@ ol[role="list"] {
   opacity: 0.7;
 }
 
-/* Doorway motif: the destination sits inside an architectural opening. */
+/* Architectural motif: the destination sits inside an architectural opening. */
 .orbit__frame {
   position: relative;
   width: 100%;
@@ -1500,7 +1499,7 @@ ol[role="list"] {
   gap: clamp(2rem, 4vw, 3.5rem);
 }
 
-/* Doorway motif: the price sits inside an opening. */
+/* Architectural motif: the price sits inside an opening. */
 .offer__price-card {
   position: relative;
   align-self: start;
@@ -1799,7 +1798,7 @@ ol[role="list"] {
   gap: clamp(2.5rem, 6vw, 4.5rem);
 }
 
-/* Doorway motif: the portrait sits in an arched opening. */
+/* Architectural motif: the portrait sits in an arched opening. */
 .about__portrait {
   position: relative;
   width: min(100%, 24rem);
@@ -2072,7 +2071,7 @@ ol[role="list"] {
   flex-direction: column;
 }
 
-/* Doorway motif: two leaves part as the section enters. */
+/* Architectural motif: two leaves part as the section enters. */
 .closing__door {
   position: absolute;
   z-index: 0;
@@ -2293,7 +2292,7 @@ ol[role="list"] {
   .js .hero__actions { animation-delay: 300ms; }
   .js .hero__facts { animation-delay: 370ms; }
 
-  /* Doorway motif: the work opens through a frame on load. */
+  /* Architectural motif: the work opens through a frame on load. */
   .js .hero__showcase {
     animation: door-open 1100ms 180ms var(--ease) both;
   }
