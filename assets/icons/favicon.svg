@@ -1,7 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
   <title id="title">Acre &amp; Signal</title>
-  <rect width="64" height="64" rx="4" fill="#1a1917"/>
-  <rect x="14" y="40" width="36" height="12" rx="1.5" fill="none" stroke="#f7f5f1" stroke-width="2.5"/>
-  <path d="M32 16v36" fill="none" stroke="#f7f5f1" stroke-width="2.5"/>
-  <circle cx="32" cy="15" r="5" fill="#8a6a44"/>
+  <rect width="64" height="64" rx="8" fill="#38160D"/>
+  <path fill="#E8DCCB" d="M12.5 33.2c3.4 6.8 10.2 11.3 19.5 11.3s16.1-4.5 19.5-11.3c-4.2 2.6-10.2 4.1-19.5 4.1s-15.3-1.5-19.5-4.1Z"/>
+  <path fill="#CBB89F" d="M18 36.8c3.8 4.2 8.8 6.4 14 6.4s10.2-2.2 14-6.4c-3.4 1.6-8 2.5-14 2.5s-10.6-.9-14-2.5Z"/>
+  <path fill="#F6F1E8" d="M32 20c7.4 0 12.6 3.2 14.8 7.8-2.8-1.4-8-2.4-14.8-2.4s-12 .9-14.8 2.4C19.4 23.2 24.6 20 32 20Z"/>
+  <circle cx="32" cy="29.2" r="4.2" fill="#CBB89F"/>
+  <path fill="none" stroke="#E8DCCB" stroke-width="1.8" d="M20 24.5c3.6-3.8 7.8-5.6 12-5.6s8.4 1.8 12 5.6"/>
+  <path fill="none" stroke="#E8DCCB" stroke-width="1.6" d="M16.5 22c5-5.4 10.4-8 15.5-8s10.5 2.6 15.5 8"/>
 </svg>
