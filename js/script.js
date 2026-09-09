@@ -1,5 +1,5 @@
 /**
- * Doorway Digital
+ * Acre & Signal
  * Navigation, scroll state, reveal motion, sticky work viewer and FAQ.
  * Vanilla JS, no dependencies.
  */
@@ -187,7 +187,7 @@
   }
 
   /* ---------------------------------------------------------------------
-     Closing CTA: doorway leaves part on entry
+     Closing CTA: architectural leaves part on entry
      --------------------------------------------------------------------- */
 
   const closing = document.querySelector(".closing");
