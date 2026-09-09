@@ -82,7 +82,7 @@
   /* Layout */
   --shell: 78rem;
   --gutter: clamp(1.25rem, 4.2vw, 3.5rem);
-  --header-h: 4.5rem;
+  --header-h: 5.5rem;
 
   /* Motion */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -536,27 +536,27 @@ ol[role="list"] {
    ========================================================================== */
 
 .masthead {
+  --nav-cream: #f6f1e8;
+  --nav-ink: #38160d;
+  --nav-ink-soft: #4a2419;
+  --nav-clay: #6e4230;
+  --nav-beige: #e8dccb;
+  --nav-taupe: #cbb89f;
+  --nav-text: #1d1714;
   position: sticky;
   z-index: 100;
   top: 0;
   border-bottom: 1px solid transparent;
-  background: var(--ivory);
-  background: color-mix(in srgb, var(--ivory) 88%, transparent);
-  backdrop-filter: saturate(140%) blur(10px);
-  transition: background var(--t-base) var(--ease-soft),
-    border-color var(--t-base) var(--ease-soft),
-    color var(--t-base) var(--ease-soft);
+  background: var(--nav-cream);
+  color: var(--nav-ink);
+  transition: border-color var(--t-base) var(--ease-soft);
 }
 
-.masthead.is-stuck {
-  border-bottom-color: var(--line);
-}
-
+.masthead.is-stuck,
 .masthead.is-inverted {
-  background: var(--ink);
-  background: color-mix(in srgb, var(--ink) 86%, transparent);
-  border-bottom-color: var(--line-invert);
-  color: var(--text-invert);
+  border-bottom-color: var(--nav-taupe);
+  background: var(--nav-cream);
+  color: var(--nav-ink);
 }
 
 .masthead__inner {
@@ -564,7 +564,7 @@ ol[role="list"] {
   min-height: var(--header-h);
   align-items: center;
   justify-content: space-between;
-  gap: var(--sp-4);
+  gap: clamp(1rem, 2.5vw, 2rem);
 }
 
 .wordmark {
@@ -572,36 +572,46 @@ ol[role="list"] {
   z-index: 2;
   display: inline-flex;
   align-items: center;
-  flex-shrink: 0;
+  flex: 0 0 auto;
   color: inherit;
   text-decoration: none;
+}
+
+.masthead .wordmark {
+  max-width: min(20rem, 46%);
 }
 
 .wordmark__logo {
   display: block;
   width: auto;
-  height: clamp(1.85rem, 5.4vw, 2.2rem);
-  max-width: min(12rem, 58vw);
+  height: auto;
+  max-width: min(18.75rem, 100%);
+  max-height: 3.4rem;
+  object-fit: contain;
+  object-position: left center;
 }
 
-.wordmark__logo--light {
-  display: none;
-}
-
-.masthead.is-inverted .wordmark__logo--dark,
 .footer .wordmark__logo--dark {
   display: none;
 }
 
-.masthead.is-inverted .wordmark__logo--light,
 .footer .wordmark__logo--light {
   display: block;
+}
+
+.mainnav {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  justify-content: flex-end;
 }
 
 .mainnav__list {
   display: flex;
   align-items: center;
-  gap: clamp(1rem, 2vw, 1.75rem);
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  gap: clamp(0.85rem, 1.6vw, 1.5rem);
   padding: 0;
   margin: 0;
   list-style: none;
@@ -610,14 +620,14 @@ ol[role="list"] {
 .mainnav__link {
   position: relative;
   display: inline-flex;
-  min-height: 2.75rem;
+  min-height: 2.5rem;
   align-items: center;
-  color: inherit;
+  color: var(--nav-ink);
   font-size: var(--fs-sm);
   font-weight: 500;
-  opacity: 0.72;
   text-decoration: none;
-  transition: opacity var(--t-fast) var(--ease-soft);
+  white-space: nowrap;
+  transition: color var(--t-fast) var(--ease-soft);
 }
 
 .mainnav__link::after {
@@ -635,7 +645,7 @@ ol[role="list"] {
 
 .mainnav__link:hover,
 .mainnav__link:focus-visible {
-  opacity: 1;
+  color: var(--nav-clay);
 }
 
 .mainnav__link:hover::after,
@@ -644,42 +654,44 @@ ol[role="list"] {
   transform-origin: left;
 }
 
-.masthead.is-inverted .btn--solid {
-  --btn-bg: var(--ivory);
-  --btn-fg: var(--ink);
-  --btn-border: var(--ivory);
+.masthead .mainnav__cta .btn {
+  --btn-bg: var(--nav-ink-soft);
+  --btn-fg: var(--nav-cream);
+  --btn-border: var(--nav-ink-soft);
+  min-height: 2.5rem;
+  padding: 0 1.1rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
 }
 
-.masthead.is-inverted .btn--solid::before {
-  background: var(--bronze-light);
+.masthead .mainnav__cta .btn::before {
+  background: var(--nav-clay);
 }
 
-.masthead.is-inverted .btn--solid:hover {
-  border-color: var(--bronze-light);
-  color: var(--ink);
+.masthead .mainnav__cta .btn:hover,
+.masthead .mainnav__cta .btn:focus-visible {
+  border-color: var(--nav-clay);
+  color: var(--nav-cream);
 }
 
 .nav-toggle {
   display: none;
+  flex-shrink: 0;
   width: 2.75rem;
   height: 2.75rem;
   align-items: center;
   justify-content: center;
   padding: 0;
-  border: 1px solid var(--line-strong);
-  border-radius: 2px;
+  border: 1px solid var(--nav-taupe);
+  border-radius: 0.25rem;
   background: transparent;
-  color: inherit;
+  color: var(--nav-ink);
   cursor: pointer;
   transition: border-color var(--t-fast) var(--ease-soft);
 }
 
-.masthead.is-inverted .nav-toggle {
-  border-color: var(--line-invert);
-}
-
 .nav-toggle:hover {
-  border-color: var(--bronze);
+  border-color: var(--nav-clay);
 }
 
 .nav-toggle__bars {
@@ -716,6 +728,15 @@ ol[role="list"] {
 }
 
 @media (max-width: 63.999rem) {
+  .masthead .wordmark {
+    max-width: min(12.5rem, 70%);
+  }
+
+  .masthead .wordmark__logo {
+    max-width: min(11.5rem, 100%);
+    max-height: 2.6rem;
+  }
+
   .nav-toggle {
     display: inline-flex;
   }
@@ -725,15 +746,11 @@ ol[role="list"] {
     top: 100%;
     right: var(--gutter);
     left: var(--gutter);
+    flex: none;
     padding: var(--sp-3);
-    border: 1px solid var(--line);
-    background: var(--paper);
-    box-shadow: 0 1.5rem 3rem -1rem rgb(18 17 15 / 0.18);
-  }
-
-  .masthead.is-inverted .mainnav {
-    border-color: var(--line-invert);
-    background: var(--ink-soft);
+    border: 1px solid var(--nav-taupe);
+    background: var(--nav-cream);
+    box-shadow: 0 1.5rem 3rem -1rem rgb(56 22 13 / 0.16);
   }
 
   .mainnav__list {
@@ -745,13 +762,8 @@ ol[role="list"] {
   .mainnav__link {
     min-height: 3rem;
     padding-inline: var(--sp-3);
-    border-bottom: 1px solid var(--line);
-    opacity: 1;
+    border-bottom: 1px solid var(--nav-beige);
     font-size: var(--fs-base);
-  }
-
-  .masthead.is-inverted .mainnav__link {
-    border-bottom-color: var(--line-invert);
   }
 
   .mainnav__link::after {
@@ -773,7 +785,7 @@ ol[role="list"] {
 
 @media (min-width: 64rem) {
   .mainnav[hidden] {
-    display: block;
+    display: flex;
   }
 }
 
@@ -2159,6 +2171,7 @@ ol[role="list"] {
 .footer .wordmark__logo {
   height: 2.4rem;
   max-width: 14rem;
+  max-height: 2.4rem;
 }
 
 .footer__brand p {
