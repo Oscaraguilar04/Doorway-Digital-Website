@@ -25,20 +25,20 @@
   const setMenu = (open, restoreFocus = false) => {
     if (!navToggle || !navigation) return;
 
-    navToggle.setAttribute("aria-expanded", String(open));
-    if (navLabel) navLabel.textContent = open ? "Close main menu" : "Open main menu";
-    navigation.hidden = !open && !desktop.matches;
+    const menuOpen = Boolean(open) && !desktop.matches;
 
-    if (open) {
-      navigation.querySelector("a")?.focus();
-    } else if (restoreFocus) {
+    navToggle.setAttribute("aria-expanded", String(menuOpen));
+    if (navLabel) navLabel.textContent = menuOpen ? "Close main menu" : "Open main menu";
+    navigation.classList.toggle("is-open", menuOpen);
+    navigation.hidden = !menuOpen && !desktop.matches;
+
+    if (restoreFocus && !menuOpen) {
       navToggle.focus();
     }
   };
 
   const syncMenu = () => {
     setMenu(false);
-    if (navigation) navigation.hidden = !desktop.matches;
   };
 
   navToggle?.addEventListener("click", () => {
