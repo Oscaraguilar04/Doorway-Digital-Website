@@ -771,7 +771,7 @@ ol[role="list"] {
     border: 0;
     border-top: 1px solid var(--nav-taupe);
     border-bottom: 1px solid var(--nav-taupe);
-    background: var(--nav-cream);
+    background: var(--nav-beige);
     box-shadow: 0 1.75rem 2.75rem -1.25rem rgb(56 22 13 / 0.18);
     pointer-events: none;
   }
@@ -830,12 +830,10 @@ ol[role="list"] {
 
 @keyframes nav-panel-in {
   from {
-    opacity: 0;
     transform: translateY(-0.45rem);
   }
 
   to {
-    opacity: 1;
     transform: none;
   }
 }
@@ -1323,10 +1321,10 @@ ol[role="list"] {
     border-color 900ms var(--ease);
 }
 
-/* Keep the pre-consolidation scatter inside the viewport on small screens. */
-@media (max-width: 47.999rem) {
+/* Keep the pre-consolidation scatter inside the viewport on stacked layouts. */
+@media (max-width: 59.999rem) {
   .orbit {
-    --drift-scale: 0.3;
+    --drift-scale: 0.2;
   }
 }
 
