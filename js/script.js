@@ -1,7 +1,6 @@
 /**
  * Acre & Signal
- * Navigation, scroll state, reveal motion, sticky work viewer and FAQ.
- * Vanilla JS, no dependencies.
+ * Navigation, scroll chapters, reveals, FAQ, and conversion hooks.
  */
 
 "use strict";
@@ -12,9 +11,7 @@
 
   root.classList.replace("no-js", "js");
 
-  /* ---------------------------------------------------------------------
-     Navigation
-     --------------------------------------------------------------------- */
+  /* Navigation ----------------------------------------------------------- */
 
   const masthead = document.querySelector("[data-masthead]");
   const navToggle = document.querySelector("[data-nav-toggle]");
@@ -32,13 +29,7 @@
     navigation.classList.toggle("is-open", menuOpen);
     navigation.hidden = !menuOpen && !desktop.matches;
 
-    if (restoreFocus && !menuOpen) {
-      navToggle.focus();
-    }
-  };
-
-  const syncMenu = () => {
-    setMenu(false);
+    if (restoreFocus && !menuOpen) navToggle.focus();
   };
 
   navToggle?.addEventListener("click", () => {
@@ -55,29 +46,16 @@
     }
   });
 
-  desktop.addEventListener("change", syncMenu);
-  syncMenu();
+  desktop.addEventListener("change", () => setMenu(false));
+  setMenu(false);
 
-  /* ---------------------------------------------------------------------
-     Header state: shadow line on scroll, inversion over dark sections
-     --------------------------------------------------------------------- */
+  /* Header --------------------------------------------------------------- */
 
-  const darkSections = Array.from(document.querySelectorAll('[data-theme="dark"]'));
   let headerTicking = false;
 
   const updateHeader = () => {
     headerTicking = false;
-    if (!masthead) return;
-
-    masthead.classList.toggle("is-stuck", window.scrollY > 8);
-
-    const probe = masthead.getBoundingClientRect().height * 0.6;
-    const overDark = darkSections.some((section) => {
-      const rect = section.getBoundingClientRect();
-      return rect.top <= probe && rect.bottom > probe;
-    });
-
-    masthead.classList.toggle("is-inverted", overDark);
+    masthead?.classList.toggle("is-stuck", window.scrollY > 8);
   };
 
   const requestHeaderUpdate = () => {
@@ -87,201 +65,90 @@
   };
 
   window.addEventListener("scroll", requestHeaderUpdate, { passive: true });
-  window.addEventListener("resize", requestHeaderUpdate);
   updateHeader();
 
-  /* ---------------------------------------------------------------------
-     Reveal on scroll
-     --------------------------------------------------------------------- */
+  /* Reveals -------------------------------------------------------------- */
 
-  const revealSelector = [
-    ".section-head",
-    ".work-panel article",
-    ".presence__copy",
-    ".presence__figure",
-    ".build-row",
-    ".offer__head",
-    ".offer__price-card",
-    ".offer__detail",
-    ".step",
-    ".about__portrait",
-    ".about__content",
-    ".faq__head",
-    ".qa",
-    ".closing__inner > *:not(.closing__door)",
-  ].join(",");
+  const revealItems = [
+    ...document.querySelectorAll(".hero__copy > *, .hero__stage"),
+    ...document.querySelectorAll("[data-reveal] .section-head, [data-reveal] .flagship__piece, [data-reveal] .flagship__preview, [data-reveal] .shift__from, [data-reveal] .shift__to, [data-reveal] .offer__price-card, [data-reveal] .offer__detail, [data-reveal] .step, [data-reveal] .about__portrait, [data-reveal] .about__content, [data-reveal] .faq__head, [data-reveal] .qa, [data-reveal] .journey__path, [data-reveal] .closing__inner, [data-reveal] .offer__pages"),
+  ];
 
-  const revealItems = Array.from(document.querySelectorAll("[data-reveal]")).flatMap(
-    (section) => Array.from(section.querySelectorAll(revealSelector))
-  );
-
-  const reveal = (item, stagger = true) => {
-    if (stagger) {
-      const index = Number(item.dataset.revealIndex || 0);
-      item.style.transitionDelay = `${Math.min(index, 4) * 70}ms`;
-    }
-    item.classList.add("is-in");
-  };
+  const reveal = (item) => item.classList.add("is-in");
 
   if (reduceMotion.matches || !("IntersectionObserver" in window)) {
-    revealItems.forEach((item) => reveal(item, false));
+    revealItems.forEach(reveal);
   } else {
     let observerFired = false;
-
-    const revealObserver = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       (entries) => {
         observerFired = true;
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
           reveal(entry.target);
-          revealObserver.unobserve(entry.target);
+          observer.unobserve(entry.target);
         });
       },
-      { rootMargin: "0px 0px -12% 0px", threshold: 0.12 }
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.12 }
     );
 
     revealItems.forEach((item) => {
-      const siblings = Array.from(item.parentElement?.children || []);
-      item.dataset.revealIndex = String(siblings.indexOf(item));
-
-      // Anything already on screen reveals immediately rather than waiting
-      // for a scroll that may never happen.
-      if (item.getBoundingClientRect().top < window.innerHeight * 0.95) {
+      if (item.getBoundingClientRect().top < window.innerHeight * 0.92) {
         reveal(item);
       } else {
-        revealObserver.observe(item);
+        observer.observe(item);
       }
     });
 
-    // Failsafe: reveal-on-scroll is an enhancement, never a prerequisite for
-    // reading the page. If the observer never reports, show everything.
     window.setTimeout(() => {
       if (observerFired) return;
-      revealObserver.disconnect();
-      revealItems.forEach((item) => reveal(item, false));
+      observer.disconnect();
+      revealItems.forEach(reveal);
     }, 2500);
   }
 
-  /* ---------------------------------------------------------------------
-     Fragmented presence: scattered platforms consolidate on entry
-     --------------------------------------------------------------------- */
+  /* Problem chapter ------------------------------------------------------ */
 
-  const orbit = document.querySelector("[data-orbit]");
+  const problem = document.querySelector("[data-problem]");
+  const lines = Array.from(document.querySelectorAll("[data-problem-line]"));
+  const beats = Array.from(document.querySelectorAll("[data-problem-beat]"));
 
-  if (orbit) {
-    if (reduceMotion.matches || !("IntersectionObserver" in window)) {
-      orbit.classList.add("is-consolidated");
-    } else {
-      const orbitObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            orbit.classList.add("is-consolidated");
-            orbitObserver.disconnect();
-          });
-        },
-        { threshold: 0.35 }
-      );
-      orbitObserver.observe(orbit);
-    }
-  }
-
-  /* ---------------------------------------------------------------------
-     Closing CTA: architectural leaves part on entry
-     --------------------------------------------------------------------- */
-
-  const closing = document.querySelector(".closing");
-
-  if (closing) {
-    if (reduceMotion.matches || !("IntersectionObserver" in window)) {
-      closing.classList.add("is-open");
-    } else {
-      const closingObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            closing.classList.add("is-open");
-            closingObserver.disconnect();
-          });
-        },
-        { threshold: 0.3 }
-      );
-      closingObserver.observe(closing);
-    }
-  }
-
-  /* ---------------------------------------------------------------------
-     Selected work: sticky viewer follows the active project panel
-     --------------------------------------------------------------------- */
-
-  const workCanvas = document.querySelector("[data-work-canvas]");
-
-  if (workCanvas && "IntersectionObserver" in window) {
-    const panels = Array.from(workCanvas.querySelectorAll("[data-work-panel]"));
-    const shots = Array.from(workCanvas.querySelectorAll("[data-shot]"));
-
-    const setActiveShot = (index) => {
-      if (workCanvas.dataset.active === String(index)) return;
-      workCanvas.dataset.active = String(index);
-      shots.forEach((shot) => {
-        shot.classList.toggle("is-active", shot.dataset.shot === String(index));
-      });
-    };
-
-    const panelObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveShot(entry.target.dataset.workPanel);
-        });
-      },
-      { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
-    );
-
-    panels.forEach((panel) => panelObserver.observe(panel));
-  }
-
-  /* ---------------------------------------------------------------------
-     Hero: very subtle pointer parallax on pointer-precise devices
-     --------------------------------------------------------------------- */
-
-  const stage = document.querySelector("[data-parallax-stage]");
-  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
-
-  if (stage && finePointer.matches && !reduceMotion.matches) {
-    const layers = Array.from(stage.querySelectorAll("[data-parallax]"));
-    let frame = null;
-
-    const move = (event) => {
-      if (frame) return;
-      frame = window.requestAnimationFrame(() => {
-        frame = null;
-        const rect = stage.getBoundingClientRect();
-        const x = (event.clientX - rect.left) / rect.width - 0.5;
-        const y = (event.clientY - rect.top) / rect.height - 0.5;
-
-        layers.forEach((layer) => {
-          const depth = Number(layer.dataset.parallax) || 1;
-          layer.style.translate = `${(-x * depth * 6).toFixed(2)}px ${(-y * depth * 5).toFixed(2)}px`;
-        });
-      });
-    };
-
-    const reset = () => {
-      layers.forEach((layer) => {
-        layer.style.translate = "0px 0px";
-      });
-    };
-
-    stage.addEventListener("pointermove", move);
-    stage.addEventListener("pointerleave", reset);
-    layers.forEach((layer) => {
-      layer.style.transition = "translate 400ms var(--ease)";
+  const setProblemLine = (index) => {
+    if (!problem) return;
+    lines.forEach((line) => {
+      line.classList.toggle("is-active", Number(line.dataset.problemLine) === index);
     });
+    problem.classList.toggle("is-later", index >= 1);
+  };
+
+  if (problem) {
+    if (reduceMotion.matches || desktop.matches === false || !beats.length) {
+      setProblemLine(0);
+      if (!desktop.matches || reduceMotion.matches) {
+        lines.forEach((line) => line.classList.add("is-active"));
+      }
+    }
+
+    if (desktop.matches && !reduceMotion.matches && "IntersectionObserver" in window && beats.length) {
+      const beatObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            setProblemLine(Number(entry.target.dataset.problemBeat));
+          });
+        },
+        { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
+      );
+      beats.forEach((beat) => beatObserver.observe(beat));
+      setProblemLine(0);
+
+      desktop.addEventListener("change", () => {
+        if (!desktop.matches) lines.forEach((line) => line.classList.add("is-active"));
+      });
+    }
   }
 
-  /* ---------------------------------------------------------------------
-     FAQ accordion
-     --------------------------------------------------------------------- */
+  /* FAQ ------------------------------------------------------------------ */
 
   document.querySelectorAll("[data-faq-button]").forEach((button) => {
     const panel = document.getElementById(button.getAttribute("aria-controls"));
@@ -316,5 +183,33 @@
         });
       }
     });
+  });
+
+  /* Conversion hooks ----------------------------------------------------- */
+
+  const params = window.location.search;
+  if (params) {
+    document.querySelectorAll("[data-calendly]").forEach((link) => {
+      try {
+        const url = new URL(link.href);
+        new URLSearchParams(params).forEach((value, key) => {
+          if (!url.searchParams.has(key)) url.searchParams.set(key, value);
+        });
+        link.href = url.toString();
+      } catch {
+        /* leave original href */
+      }
+    });
+  }
+
+  document.addEventListener("click", (event) => {
+    const target = event.target.closest("[data-track]");
+    if (!target) return;
+    const name = target.getAttribute("data-track");
+    document.dispatchEvent(
+      new CustomEvent("acre:track", {
+        detail: { name, href: target.getAttribute("href") || "" },
+      })
+    );
   });
 })();
