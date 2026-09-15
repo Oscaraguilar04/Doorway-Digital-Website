@@ -137,13 +137,15 @@
       line.classList.toggle("is-active", Number(line.dataset.problemLine) === index);
     });
     problem.classList.toggle("is-later", index >= 1);
+    problem.classList.toggle("is-yours", index >= 2);
   };
 
   if (problem) {
     if (reduceMotion.matches || desktop.matches === false || !beats.length) {
-      setProblemLine(0);
+      setProblemLine(reduceMotion.matches || !desktop.matches ? 2 : 0);
       if (!desktop.matches || reduceMotion.matches) {
         lines.forEach((line) => line.classList.add("is-active"));
+        problem.classList.add("is-later", "is-yours");
       }
     }
 
