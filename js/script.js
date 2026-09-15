@@ -69,7 +69,7 @@
 
   /* Reveals -------------------------------------------------------------- */
 
-  const heroReveal = [...document.querySelectorAll(".hero__copy > *, .hero__stage")];
+  const heroReveal = [...document.querySelectorAll("[data-hero-in]")];
   const reveal = (item) => {
     item.classList.remove("is-pending");
     item.classList.add("is-in");
@@ -82,6 +82,78 @@
     window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => heroReveal.forEach(reveal));
     });
+  }
+
+  const depth = document.querySelector("[data-hero-depth]");
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+  let depthX = 0;
+  let depthY = 0;
+  let targetX = 0;
+  let targetY = 0;
+  let depthFrame = 0;
+
+  const depthEnabled = () =>
+    Boolean(depth) && desktop.matches && finePointer.matches && !reduceMotion.matches;
+
+  const resetDepth = () => {
+    targetX = 0;
+    targetY = 0;
+    depthX = 0;
+    depthY = 0;
+    if (depth) {
+      depth.style.setProperty("--hx", "0");
+      depth.style.setProperty("--hy", "0");
+    }
+  };
+
+  const tickDepth = () => {
+    depthX += (targetX - depthX) * 0.1;
+    depthY += (targetY - depthY) * 0.1;
+    depth.style.setProperty("--hx", depthX.toFixed(3));
+    depth.style.setProperty("--hy", depthY.toFixed(3));
+
+    if (Math.abs(targetX - depthX) > 0.01 || Math.abs(targetY - depthY) > 0.01) {
+      depthFrame = window.requestAnimationFrame(tickDepth);
+      return;
+    }
+
+    depthFrame = 0;
+  };
+
+  const requestDepth = () => {
+    if (!depthFrame) depthFrame = window.requestAnimationFrame(tickDepth);
+  };
+
+  if (depth) {
+    window.addEventListener(
+      "pointermove",
+      (event) => {
+        if (!depthEnabled() || event.pointerType === "touch") return;
+        const rect = depth.getBoundingClientRect();
+        if (!rect.width || !rect.height) return;
+        targetX = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
+        targetY = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
+        requestDepth();
+      },
+      { passive: true }
+    );
+
+    document.querySelector(".hero")?.addEventListener("pointerleave", () => {
+      if (!depthEnabled()) return;
+      targetX = 0;
+      targetY = 0;
+      requestDepth();
+    });
+
+    const haltDepth = () => {
+      if (depthFrame) window.cancelAnimationFrame(depthFrame);
+      depthFrame = 0;
+      resetDepth();
+    };
+
+    desktop.addEventListener("change", haltDepth);
+    finePointer.addEventListener("change", haltDepth);
+    reduceMotion.addEventListener("change", haltDepth);
   }
 
   document.querySelectorAll("[data-reveal]").forEach(reveal);
