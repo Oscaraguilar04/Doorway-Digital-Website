@@ -74,37 +74,33 @@
     ...document.querySelectorAll("[data-reveal]"),
   ];
 
-  const reveal = (item) => item.classList.add("is-in");
+  const reveal = (item) => {
+    item.classList.remove("is-pending");
+    item.classList.add("is-in");
+  };
 
   if (reduceMotion.matches || !("IntersectionObserver" in window)) {
     revealItems.forEach(reveal);
   } else {
-    let observerFired = false;
     const observer = new IntersectionObserver(
       (entries) => {
-        observerFired = true;
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
           reveal(entry.target);
           observer.unobserve(entry.target);
         });
       },
-      { rootMargin: "0px 0px -10% 0px", threshold: 0.12 }
+      { rootMargin: "0px 0px 18% 0px", threshold: 0.01 }
     );
 
     revealItems.forEach((item) => {
-      if (item.getBoundingClientRect().top < window.innerHeight * 0.92) {
+      if (item.getBoundingClientRect().top < window.innerHeight * 1.05) {
         reveal(item);
       } else {
+        item.classList.add("is-pending");
         observer.observe(item);
       }
     });
-
-    window.setTimeout(() => {
-      if (observerFired) return;
-      observer.disconnect();
-      revealItems.forEach(reveal);
-    }, 2500);
   }
 
   const revealHash = () => {
@@ -118,7 +114,9 @@
     link.addEventListener("click", () => {
       const id = link.getAttribute("href");
       const target = id && document.querySelector(id);
-      if (target) reveal(target);
+      if (!target) return;
+      reveal(target);
+      target.querySelectorAll("[data-reveal]").forEach(reveal);
     });
   });
 

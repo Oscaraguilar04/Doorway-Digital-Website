@@ -830,9 +830,15 @@ ol[role="list"] {
   padding-block: var(--sp-8);
 }
 
+.problem__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .problem__lines {
   position: relative;
-  min-height: 7.5rem;
+  min-height: 8.25rem;
   margin-top: var(--sp-5);
 }
 
@@ -862,7 +868,7 @@ ol[role="list"] {
 
 .problem__note {
   max-width: 34rem;
-  margin-top: 9.25rem;
+  margin-top: var(--sp-6);
   color: rgb(246 241 232 / 0.62);
   font-size: var(--fs-md);
 }
@@ -982,7 +988,7 @@ ol[role="list"] {
 
   .problem__lines {
     display: grid;
-    gap: var(--sp-5);
+    gap: var(--sp-4);
     min-height: 0;
   }
 
@@ -990,6 +996,7 @@ ol[role="list"] {
     position: static;
     opacity: 1;
     transform: none;
+    font-size: clamp(1.85rem, 8.4vw, 2.55rem);
   }
 
   .problem__note {
@@ -1011,6 +1018,7 @@ ol[role="list"] {
 
 .journey__path > li {
   position: relative;
+  min-width: 0;
   padding: var(--sp-5);
   border-top: 1px solid var(--beige);
   counter-increment: beat;
@@ -1240,23 +1248,25 @@ ol[role="list"] {
   position: relative;
   margin: 0;
   overflow: hidden;
-  min-height: 22rem;
+  min-height: 26rem;
   background: var(--ink);
 }
 
 .offer__still img {
   width: 100%;
   height: 100%;
-  min-height: 22rem;
+  min-height: 26rem;
   object-fit: cover;
-  object-position: 78% 40%;
-  filter: saturate(0.85) contrast(1.05);
+  object-position: 82% 36%;
+  transform: scale(1.28);
+  transform-origin: 80% 40%;
+  filter: saturate(0.92) contrast(1.04);
 }
 
 .offer__still::after {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgb(15 13 12 / 0.15), rgb(15 13 12 / 0.55) 70%, rgb(15 13 12 / 0.72));
+  background: linear-gradient(180deg, rgb(15 13 12 / 0.08), rgb(15 13 12 / 0.42) 55%, rgb(15 13 12 / 0.62));
   content: "";
 }
 
@@ -1450,6 +1460,7 @@ ol[role="list"] {
   place-items: center;
   border: 1px solid var(--gold);
   border-radius: 50%;
+  background: var(--white);
   font-size: 0.68rem;
 }
 
@@ -1475,9 +1486,9 @@ ol[role="list"] {
 
   .steps::before {
     position: absolute;
-    top: 0.9rem;
-    right: 4%;
-    left: 4%;
+    top: 0.92rem;
+    right: 6%;
+    left: 6%;
     height: 1px;
     background: var(--gold-line);
     content: "";
@@ -1486,9 +1497,9 @@ ol[role="list"] {
   .step__num {
     position: relative;
     z-index: 1;
-    background: var(--white);
     width: fit-content;
-    padding-right: 0.4rem;
+    padding-right: 0.45rem;
+    background: var(--white);
   }
 }
 
@@ -1676,8 +1687,10 @@ ol[role="list"] {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 80% 35%;
-  filter: brightness(0.38) saturate(0.8);
+  object-position: 84% 38%;
+  transform: scale(1.32);
+  transform-origin: 82% 40%;
+  filter: brightness(0.42) saturate(0.85);
 }
 
 .bookcard__body {
@@ -1825,24 +1838,20 @@ ol[role="list"] {
 }
 
 /* Motion */
-.js [data-reveal] {
-  opacity: 0;
-  transform: translateY(0.7rem);
-  transition: opacity 700ms var(--ease), transform 700ms var(--ease);
-}
-
-.js [data-reveal].is-in {
-  opacity: 1;
-  transform: none;
-}
-
+.js [data-reveal],
 .js .hero__copy > *,
 .js .hero__stage {
-  opacity: 0;
-  transform: translateY(0.85rem);
   transition: opacity 700ms var(--ease), transform 700ms var(--ease);
 }
 
+.js [data-reveal].is-pending,
+.js .hero__copy > *.is-pending,
+.js .hero__stage.is-pending {
+  opacity: 0;
+  transform: translateY(0.7rem);
+}
+
+.js [data-reveal].is-in,
 .js .hero__copy > *.is-in,
 .js .hero__stage.is-in {
   opacity: 1;
@@ -1896,8 +1905,11 @@ ol[role="list"] {
   }
 
   .js [data-reveal],
+  .js [data-reveal].is-pending,
   .js .hero__copy > *,
   .js .hero__stage,
+  .js .hero__copy > *.is-pending,
+  .js .hero__stage.is-pending,
   .problem__line {
     opacity: 1;
     transform: none;
