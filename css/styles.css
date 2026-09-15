@@ -2301,7 +2301,7 @@ ol[role="list"] {
   }
 
   .about__portrait img {
-    max-height: 22rem;
+    max-height: 20rem;
     aspect-ratio: 4 / 5;
   }
 
@@ -2381,8 +2381,28 @@ ol[role="list"] {
     letter-spacing: 0.1em;
   }
 
+  .hero__title br,
+  .offer__title br,
+  .section-head__title br {
+    display: none;
+  }
+
+  .hero__title {
+    font-size: clamp(2.625rem, 11vw, 3.25rem);
+  }
+
   .flagship__preview--detail {
     width: min(42%, 7.75rem);
+  }
+
+  .offer__still img {
+    object-position: 94% 18%;
+    transform: scale(1.9);
+    transform-origin: 96% 24%;
+  }
+
+  .about__portrait img {
+    max-height: 17.5rem;
   }
 }
 
