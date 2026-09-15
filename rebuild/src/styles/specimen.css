@@ -1,0 +1,143 @@
+/* Checkpoint 1 only. Delete when the homepage replaces this page. */
+
+.specimen {
+  padding-block: var(--space-2xl);
+}
+
+.specimen__banner {
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-lg);
+  border-bottom: var(--rule);
+}
+
+.specimen__kicker {
+  margin-bottom: var(--space-sm);
+}
+
+.specimen__intro {
+  max-width: 36rem;
+  margin-top: var(--space-md);
+  color: var(--color-muted);
+}
+
+.specimen__grid {
+  display: grid;
+  gap: var(--space-2xl);
+}
+
+.specimen__section h2 {
+  margin-bottom: var(--space-lg);
+}
+
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+  gap: var(--space-sm);
+}
+
+.swatch {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.swatch__chip {
+  aspect-ratio: 5 / 3;
+  border: var(--rule);
+}
+
+.swatch__name {
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+
+.swatch__value {
+  font-size: var(--text-micro);
+  color: var(--color-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.type-stack {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.type-row {
+  display: grid;
+  gap: var(--space-xs);
+  padding-bottom: var(--space-lg);
+  border-bottom: var(--rule);
+}
+
+.type-row:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.space-scale {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.space-row {
+  display: grid;
+  grid-template-columns: 7rem 4.5rem 1fr;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--text-xs);
+}
+
+.space-row__bar {
+  height: 0.55rem;
+  background: var(--color-taupe);
+}
+
+.btn-row,
+.link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.media-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.7fr);
+  gap: var(--space-md);
+}
+
+.token-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+.token-table th,
+.token-table td {
+  padding: 0.7rem 0;
+  border-bottom: var(--rule);
+  text-align: left;
+  vertical-align: top;
+}
+
+.token-table th {
+  font-size: var(--text-micro);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.token-table code {
+  font-size: 0.78rem;
+}
+
+@media (max-width: 47.999rem) {
+  .specimen {
+    padding-block: var(--space-xl);
+  }
+
+  .media-row,
+  .space-row {
+    grid-template-columns: 1fr;
+  }
+}

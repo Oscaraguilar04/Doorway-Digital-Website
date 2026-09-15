@@ -1,0 +1,74 @@
+/* Acre & Signal — design tokens. No component rules. */
+
+:root {
+  --color-mahogany: #38160d;
+  --color-espresso: #4a2419;
+  --color-clay: #6e4230;
+  --color-beige: #e8dccb;
+  --color-cream: #f6f1e8;
+  --color-taupe: #cbb89f;
+  --color-text: #1d1714;
+  --color-muted: #6f6258;
+  --color-white: #ffffff;
+  --color-focus: #6e4230;
+
+  --font-serif: "Playfair Display", "Times New Roman", Georgia, serif;
+  --font-sans: "Inter Variable", Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --text-micro: 0.6875rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-body: 1rem;
+  --text-lede: clamp(1.05rem, 0.98rem + 0.28vw, 1.125rem);
+  --text-h3: clamp(1.35rem, 1.2rem + 0.55vw, 1.75rem);
+  --text-h2: clamp(2rem, 1.35rem + 2.1vw, 3.25rem);
+  --text-h1: clamp(2.5rem, 1.35rem + 3.6vw, 5.25rem);
+
+  --leading-display: 0.96;
+  --leading-title: 1.08;
+  --leading-body: 1.65;
+  --tracking-display: -0.035em;
+  --tracking-label: 0.18em;
+
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1.25rem;
+  --space-lg: 2rem;
+  --space-xl: 3.25rem;
+  --space-2xl: 5rem;
+  --space-section: clamp(4.5rem, 10vw, 8rem);
+
+  --container-narrow: 38rem;
+  --container: 72rem;
+  --container-wide: 80rem;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+
+  --bp-phone: 23.4375rem;
+  --bp-phone-lg: 26.875rem;
+  --bp-tablet: 48rem;
+  --bp-laptop: 64rem;
+  --bp-desktop: 80rem;
+  --bp-wide: 90rem;
+
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 160ms;
+  --duration-base: 280ms;
+  --duration-slow: 560ms;
+
+  --shadow-media: 0 1.5rem 2.75rem -1.2rem rgb(29 23 20 / 0.26);
+  --rule: 1px solid rgb(56 22 13 / 0.12);
+
+  --header-height: 4.25rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 1ms;
+    --duration-base: 1ms;
+    --duration-slow: 1ms;
+  }
+}

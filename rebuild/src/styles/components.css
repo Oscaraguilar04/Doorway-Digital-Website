@@ -1,0 +1,97 @@
+.container {
+  width: min(100% - (var(--gutter) * 2), var(--container));
+  margin-inline: auto;
+}
+
+.container--narrow {
+  width: min(100% - (var(--gutter) * 2), var(--container-narrow));
+}
+
+.container--wide {
+  width: min(100% - (var(--gutter) * 2), var(--container-wide));
+}
+
+.btn {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: 0.7rem 1.25rem;
+  border: 1px solid var(--color-text);
+  border-radius: var(--radius-md);
+  background: var(--color-text);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    background-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard);
+}
+
+.btn:hover {
+  background: var(--color-mahogany);
+  border-color: var(--color-mahogany);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-text);
+}
+
+.btn--ghost:hover {
+  background: var(--color-text);
+  color: var(--color-cream);
+}
+
+.btn__affordance {
+  font-weight: 500;
+  translate: 0 0;
+}
+
+.btn:hover .btn__affordance {
+  translate: 0.15rem 0;
+}
+
+.link {
+  color: var(--color-text);
+  font-weight: 600;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.link:hover {
+  color: var(--color-mahogany);
+}
+
+.media {
+  overflow: hidden;
+  background: var(--color-beige);
+  box-shadow: var(--shadow-media);
+}
+
+.media img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.media--landscape img {
+  aspect-ratio: 16 / 10;
+  object-position: top center;
+}
+
+.media--portrait img {
+  aspect-ratio: 4 / 5;
+  object-position: top center;
+}
+
+.rule {
+  height: 1px;
+  border: 0;
+  background: rgb(56 22 13 / 0.12);
+}

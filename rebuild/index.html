@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#F6F1E8">
+    <title>Acre &amp; Signal — Design system (Checkpoint 1)</title>
+    <meta
+      name="description"
+      content="Internal design-system specimen for the Acre &amp; Signal rebuild. This is not the public homepage."
+    >
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <main class="specimen container">
+      <header class="specimen__banner">
+        <p class="label specimen__kicker">Checkpoint 1 · Not the homepage</p>
+        <h1 class="display">Design system.</h1>
+        <p class="specimen__intro">
+          Tokens, type, buttons, and media treatments for the Acre &amp; Signal
+          rebuild. The live site at the repository root is unchanged.
+        </p>
+      </header>
+
+      <div class="specimen__grid">
+        <section class="specimen__section" aria-labelledby="color-title">
+          <h2 class="title" id="color-title">Color</h2>
+          <div class="swatches">
+            <figure class="swatch">
+              <div class="swatch__chip" style="background:#F6F1E8"></div>
+              <figcaption>
+                <p class="swatch__name">Cream</p>
+                <p class="swatch__value">#F6F1E8</p>
+              </figcaption>
+            </figure>
+            <figure class="swatch">
+              <div class="swatch__chip" style="background:#E8DCCB"></div>
+              <figcaption>
+                <p class="swatch__name">Beige</p>
+                <p class="swatch__value">#E8DCCB</p>
+              </figcaption>
+            </figure>
+            <figure class="swatch">
+              <div class="swatch__chip" style="background:#CBB89F"></div>
+              <figcaption>
+                <p class="swatch__name">Taupe</p>
+                <p class="swatch__value">#CBB89F</p>
+              </figcaption>
+            </figure>
+            <figure class="swatch">
+              <div class="swatch__chip" style="background:#6E4230"></div>
+              <figcaption>
+                <p class="swatch__name">Clay</p>
+                <p class="swatch__value">#6E4230</p>
+              </figcaption>
+            </figure>
+            <figure class="swatch">
+              <div class="swatch__chip" style="background:#4A2419"></div>
+              <figcaption>
+                <p class="swatch__name">Espresso</p>
+                <p class="swatch__value">#4A2419</p>
+              </figcaption>
+            </figure>
+            <figure class="swatch">
+              <div class="swatch__chip" style="background:#38160D"></div>
+              <figcaption>
+                <p class="swatch__name">Mahogany</p>
+                <p class="swatch__value">#38160D</p>
+              </figcaption>
+            </figure>
+            <figure class="swatch">
+              <div class="swatch__chip" style="background:#1D1714"></div>
+              <figcaption>
+                <p class="swatch__name">Text</p>
+                <p class="swatch__value">#1D1714</p>
+              </figcaption>
+            </figure>
+            <figure class="swatch">
+              <div class="swatch__chip" style="background:#6F6258"></div>
+              <figcaption>
+                <p class="swatch__name">Muted</p>
+                <p class="swatch__value">#6F6258</p>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="specimen__section" aria-labelledby="type-title">
+          <h2 class="title" id="type-title">Typography</h2>
+          <div class="type-stack">
+            <div class="type-row">
+              <p class="label">Display · Playfair Display</p>
+              <p class="display">Your name deserves a home of its own.</p>
+            </div>
+            <div class="type-row">
+              <p class="label">Title</p>
+              <p class="title">A complete website for your real estate brand.</p>
+            </div>
+            <div class="type-row">
+              <p class="label">Heading</p>
+              <p class="heading">Focused by design.</p>
+            </div>
+            <div class="type-row">
+              <p class="label">Lede · Inter</p>
+              <p class="lede">
+                Custom personal-brand websites built around your name, your work
+                and the way you want to be represented.
+              </p>
+            </div>
+            <div class="type-row">
+              <p class="label">Label</p>
+              <p class="label">Custom websites for Realtors</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="specimen__section" aria-labelledby="space-title">
+          <h2 class="title" id="space-title">Spacing</h2>
+          <div class="space-scale">
+            <div class="space-row">
+              <span>--space-xs</span><span>0.5rem</span>
+              <div class="space-row__bar" style="width: var(--space-xs)"></div>
+            </div>
+            <div class="space-row">
+              <span>--space-sm</span><span>0.75rem</span>
+              <div class="space-row__bar" style="width: var(--space-sm)"></div>
+            </div>
+            <div class="space-row">
+              <span>--space-md</span><span>1.25rem</span>
+              <div class="space-row__bar" style="width: var(--space-md)"></div>
+            </div>
+            <div class="space-row">
+              <span>--space-lg</span><span>2rem</span>
+              <div class="space-row__bar" style="width: var(--space-lg)"></div>
+            </div>
+            <div class="space-row">
+              <span>--space-xl</span><span>3.25rem</span>
+              <div class="space-row__bar" style="width: var(--space-xl)"></div>
+            </div>
+            <div class="space-row">
+              <span>--space-2xl</span><span>5rem</span>
+              <div class="space-row__bar" style="width: var(--space-2xl)"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="specimen__section" aria-labelledby="action-title">
+          <h2 class="title" id="action-title">Actions</h2>
+          <div class="btn-row">
+            <a class="btn" href="https://calendly.com/acreandsignal/30min">
+              Book a Consultation
+              <span class="btn__affordance" aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn--ghost" href="#media-title">
+              View Our Work
+              <span class="btn__affordance" aria-hidden="true">→</span>
+            </a>
+          </div>
+          <p class="link-row" style="margin-top: var(--space-md)">
+            <a class="link" href="mailto:acreandsignal@outlook.com">acreandsignal@outlook.com</a>
+          </p>
+        </section>
+
+        <section class="specimen__section" aria-labelledby="media-title">
+          <h2 class="title" id="media-title">Media</h2>
+          <div class="media-row">
+            <figure class="media media--landscape">
+              <img
+                src="/images/portfolio/sebastian-desktop.webp"
+                alt="Sebastian Alvarez portfolio concept, desktop homepage"
+                width="1440"
+                height="900"
+              >
+            </figure>
+            <figure class="media media--portrait">
+              <img
+                src="/images/brand/oscar-aguilar.webp"
+                alt="Oscar Aguilar, founder of Acre &amp; Signal"
+                width="880"
+                height="1100"
+              >
+            </figure>
+          </div>
+        </section>
+
+        <section class="specimen__section" aria-labelledby="layout-title">
+          <h2 class="title" id="layout-title">Layout tokens</h2>
+          <table class="token-table">
+            <thead>
+              <tr>
+                <th scope="col">Token</th>
+                <th scope="col">Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>--container</code></td>
+                <td>72rem</td>
+              </tr>
+              <tr>
+                <td><code>--gutter</code></td>
+                <td>clamp(1.25rem, 4vw, 2.5rem) — 20–40px</td>
+              </tr>
+              <tr>
+                <td>Breakpoints</td>
+                <td>375 / 390 / 430 / 768 / 1024 / 1280 / 1440</td>
+              </tr>
+              <tr>
+                <td>Motion</td>
+                <td>Tokens only. No animation until later checkpoints.</td>
+              </tr>
+              <tr>
+                <td>Focus</td>
+                <td>2px clay outline, 3px offset</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
