@@ -898,7 +898,7 @@ ol[role="list"] {
   }
 
   .problem__track > * {
-    height: 70vh;
+    height: 58vh;
   }
 }
 
@@ -1671,19 +1671,17 @@ ol[role="list"] {
 }
 
 /* Motion */
-.js [data-reveal] .section-head,
-.js [data-reveal] .flagship__piece,
-.js [data-reveal] .flagship__preview,
-.js [data-reveal] .shift__from,
-.js [data-reveal] .shift__to,
-.js [data-reveal] .offer__price-card,
-.js [data-reveal] .offer__detail,
-.js [data-reveal] .step,
-.js [data-reveal] .about__portrait,
-.js [data-reveal] .about__content,
-.js [data-reveal] .faq__head,
-.js [data-reveal] .qa,
-.js [data-reveal] .journey__path,
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(0.7rem);
+  transition: opacity 700ms var(--ease), transform 700ms var(--ease);
+}
+
+.js [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
 .js .hero__copy > *,
 .js .hero__stage {
   opacity: 0;
@@ -1691,22 +1689,8 @@ ol[role="list"] {
   transition: opacity 700ms var(--ease), transform 700ms var(--ease);
 }
 
-.js [data-reveal] .section-head.is-in,
-.js [data-reveal] .flagship__piece.is-in,
-.js [data-reveal] .flagship__preview.is-in,
-.js [data-reveal] .shift__from.is-in,
-.js [data-reveal] .shift__to.is-in,
-.js [data-reveal] .offer__price-card.is-in,
-.js [data-reveal] .offer__detail.is-in,
-.js [data-reveal] .step.is-in,
-.js [data-reveal] .about__portrait.is-in,
-.js [data-reveal] .about__content.is-in,
-.js [data-reveal] .faq__head.is-in,
-.js [data-reveal] .qa.is-in,
-.js [data-reveal] .journey__path.is-in,
 .js .hero__copy > *.is-in,
-.js .hero__stage.is-in,
-.js .is-in {
+.js .hero__stage.is-in {
   opacity: 1;
   transform: none;
 }
@@ -1757,19 +1741,7 @@ ol[role="list"] {
     scroll-behavior: auto !important;
   }
 
-  .js [data-reveal] .section-head,
-  .js [data-reveal] .flagship__piece,
-  .js [data-reveal] .flagship__preview,
-  .js [data-reveal] .shift__from,
-  .js [data-reveal] .shift__to,
-  .js [data-reveal] .offer__price-card,
-  .js [data-reveal] .offer__detail,
-  .js [data-reveal] .step,
-  .js [data-reveal] .about__portrait,
-  .js [data-reveal] .about__content,
-  .js [data-reveal] .faq__head,
-  .js [data-reveal] .qa,
-  .js [data-reveal] .journey__path,
+  .js [data-reveal],
   .js .hero__copy > *,
   .js .hero__stage,
   .problem__line {

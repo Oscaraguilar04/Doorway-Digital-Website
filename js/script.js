@@ -71,7 +71,7 @@
 
   const revealItems = [
     ...document.querySelectorAll(".hero__copy > *, .hero__stage"),
-    ...document.querySelectorAll("[data-reveal] .section-head, [data-reveal] .flagship__piece, [data-reveal] .flagship__preview, [data-reveal] .shift__from, [data-reveal] .shift__to, [data-reveal] .offer__price-card, [data-reveal] .offer__detail, [data-reveal] .step, [data-reveal] .about__portrait, [data-reveal] .about__content, [data-reveal] .faq__head, [data-reveal] .qa, [data-reveal] .journey__path, [data-reveal] .closing__inner, [data-reveal] .offer__pages"),
+    ...document.querySelectorAll("[data-reveal]"),
   ];
 
   const reveal = (item) => item.classList.add("is-in");
@@ -106,6 +106,24 @@
       revealItems.forEach(reveal);
     }, 2500);
   }
+
+  const revealHash = () => {
+    const target = document.querySelector(location.hash);
+    if (!target) return;
+    reveal(target);
+    target.querySelectorAll("[data-reveal]").forEach(reveal);
+  };
+
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", () => {
+      const id = link.getAttribute("href");
+      const target = id && document.querySelector(id);
+      if (target) reveal(target);
+    });
+  });
+
+  window.addEventListener("hashchange", revealHash);
+  if (location.hash) revealHash();
 
   /* Problem chapter ------------------------------------------------------ */
 
