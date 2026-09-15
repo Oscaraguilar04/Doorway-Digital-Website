@@ -69,39 +69,22 @@
 
   /* Reveals -------------------------------------------------------------- */
 
-  const revealItems = [
-    ...document.querySelectorAll(".hero__copy > *, .hero__stage"),
-    ...document.querySelectorAll("[data-reveal]"),
-  ];
-
+  const heroReveal = [...document.querySelectorAll(".hero__copy > *, .hero__stage")];
   const reveal = (item) => {
     item.classList.remove("is-pending");
     item.classList.add("is-in");
   };
 
-  if (reduceMotion.matches || !("IntersectionObserver" in window)) {
-    revealItems.forEach(reveal);
+  if (reduceMotion.matches) {
+    heroReveal.forEach(reveal);
   } else {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          reveal(entry.target);
-          observer.unobserve(entry.target);
-        });
-      },
-      { rootMargin: "0px 0px 18% 0px", threshold: 0.01 }
-    );
-
-    revealItems.forEach((item) => {
-      if (item.getBoundingClientRect().top < window.innerHeight * 1.05) {
-        reveal(item);
-      } else {
-        item.classList.add("is-pending");
-        observer.observe(item);
-      }
+    heroReveal.forEach((item) => item.classList.add("is-pending"));
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => heroReveal.forEach(reveal));
     });
   }
+
+  document.querySelectorAll("[data-reveal]").forEach(reveal);
 
   const revealHash = () => {
     const target = document.querySelector(location.hash);

@@ -1431,6 +1431,14 @@ ol[role="list"] {
   }
 }
 
+@media (max-width: 63.999rem) {
+  .offer__still img {
+    object-position: 92% 34%;
+    transform: scale(1.72);
+    transform-origin: 90% 38%;
+  }
+}
+
 /* Process */
 .process {
   padding-block: var(--section-y);
